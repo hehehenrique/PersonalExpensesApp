@@ -19,11 +19,7 @@ class ChartBar extends StatelessWidget {
         return '${(value / 1000.0).toStringAsFixed(1)}K';
       }
     }
-    if (value >= 100.0) {
-      return value.toStringAsFixed(0);
-    } else {
-      return value.toStringAsFixed(2);
-    }
+    return value.toStringAsFixed(0);
   }
 
   ChartBar({
