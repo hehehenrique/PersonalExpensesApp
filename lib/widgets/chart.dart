@@ -33,13 +33,13 @@ class Chart extends StatelessWidget {
       }
 
       return DaySpending(
-        DateFormat.E().format(weekDay),
+        DateFormat.E().format(weekDay).substring(0, 1),
         totalDaySpending,
         ((_thisWeekTotalSpending == 0.0)
             ? 0.0
             : (totalDaySpending / _thisWeekTotalSpending)),
       );
-    });
+    }).reversed.toList();
   }
 
   @override

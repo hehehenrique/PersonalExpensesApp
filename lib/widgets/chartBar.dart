@@ -36,29 +36,31 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(children: [
-        FittedBox(
-          child: Text('\$${_valueAsString}'),
+        Container(
+          height: 20,
+          child: FittedBox(
+            child: Text('\$${_valueAsString}',
+                style: Theme.of(context).textTheme.titleSmall),
+          ),
         ),
-        SizedBox(
-          height: 4,
-        ),
+        SizedBox(height: 4),
         Container(
           height: 60,
           width: 14,
-          child: Stack(
-            alignment: AlignmentDirectional.bottomCenter,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1.0,
-                  ),
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(20),
+          child: Stack(alignment: AlignmentDirectional.bottomCenter, children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  width: 3.0,
                 ),
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(20),
               ),
-              FractionallySizedBox(
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 3.0),
+              child: FractionallySizedBox(
                 heightFactor: fillFactor,
                 child: Container(
                   decoration: BoxDecoration(
@@ -67,13 +69,11 @@ class ChartBar extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ]),
         ),
-        SizedBox(
-          height: 4,
-        ),
-        Text(label),
+        SizedBox(height: 4),
+        Text(label, style: Theme.of(context).textTheme.titleMedium),
       ]),
     );
   }

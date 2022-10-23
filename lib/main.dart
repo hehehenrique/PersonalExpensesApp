@@ -44,6 +44,12 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
+              displayMedium: TextStyle(
+                fontFamily: "Quicksand",
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                color: Colors.orange[800],
+              ),
             ),
       ),
       home: MyHomePage(),
@@ -65,20 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
-  final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'TheWeeknd concert',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Shoes',
-    //   amount: 110.00,
-    //   date: DateTime.now(),
-    // ),
-  ];
+  final List<Transaction> _userTransactions = [];
 
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
@@ -117,7 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Chart(_recentTransactions),
